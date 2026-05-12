@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To-Do List</title>
+    <style>
+        body {
+            background-color: #111111;
+            color: rgb(220, 192, 157);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: rgb(201, 140, 161); text-align: center;" >Welcome to the world of workaholic ;) </h1>
+
+    <div>
+        <label for="task">Enter Your Task: </label>
+        <input id="task" type="text" placeholder="what do you want to do?" />
+        <button id="addTask"> +Add </button>
+    </div>
+
+    <div>
+        <ul id="taskList">
+            <li> Watch modern Async video </li>
+            <li> watch 'ace of diamond' recent ep. </li>
+        </ul>
+    </div>
+
+    <script>
+        const buttonRef = window.document.getElementById('addTask');
+        const taskRef = window.document.getElementById('task');
+        const taskListref = window.document.getElementById('taskList');
+
+        buttonRef.addEventListener('click', function() {
+            const taskCreated = taskRef.value;
+            console.log(taskCreated);
+
+            const li = document.createElement('li');    //creates <li></li> tag -> but it's empty
+            li.innerText = taskCreated;         //<li> taskCreated </li>-> but it's not added in the list yet
+            taskListref.appendChild(li);
+
+            li.addEventListener('click', function(){
+                li.remove();            //remove the task on clicking
+            })
+
+            taskRef.value = '';       //after creating the task, it empties the previous word written in the box
+
+        })
+    </script>
+
+</body>
+</html>
