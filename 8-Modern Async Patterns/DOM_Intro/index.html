@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Hello there!</h2>
+    <button id="clickbtn">Click Me</button>
+    <script>
+        const buttonRef = window.document.getElementById('clickbtn');
+        console.log(buttonRef);
+        // buttonRef.remove();
+        // buttonRef = null;
+        // buttonRef.click();
+
+        buttonRef.style.backgroundColor = 'pink';
+
+        //writing a function that gets called on clicking the button
+        //but we can't call multiple functions like this, 
+
+        // function saveDataToDB() {
+        //     console.log('We are now saving data to the database!');
+        // }   
+
+        //another way of doing this
+        // buttonRef.onclick = function() {
+        //     console.log('Kuch toh hua hai!')
+        // }
+
+
+        //The best way to do this
+        // buttonRef.addEventListener('click', function () {
+        //     console.log('Button click hua!');
+        // });
+
+
+        //1. ek baar fnction execute hone ke baad function remove kar do
+        // const onClickFn = function () {
+        //     console.log('Button Click toh ho gaya!');
+        //     buttonRef.removeEventListener('click', onClickFn);
+        // }
+
+        // buttonRef.addEventListener('click', onClickFn);
+
+
+        //2. button click karne pe button hi remove kardo
+        const onClickFn = function () {
+            buttonRef.remove();
+            buttonRef = null;
+        }
+
+        buttonRef.addEventListener('click', onClickFn);
+
+    </script>
+</body>
+
+</html>
